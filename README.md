@@ -1,17 +1,27 @@
 # prueba-laliga
 
-1- Clonar proyecto docker-liga rama: master (git clone https://github.com/lhmsoftware/docker-liga.git)
+# Clonar proyecto docker-liga rama=>master
+# git clone https://github.com/lhmsoftware/docker- liga.git
 
-2- Crear dentro del proyecto descargado un nueva carpeta llamada apps 
+# Crear dentro del proyecto un nueva carpeta con el nombre: apps 
 
-3- Dentro de ella descar el proyecto proyect-liga rama: master (git clone https://github.com/lhmsoftware/proyect-liga.git )
+# cd apps
+# Dentro de la carpeta apps descargar el proyecto proyect-liga rama=>master
+# git clone https://github.com/lhmsoftware/proyect-liga.git 
 
-4- Construir el docker-composer (sudo docker-compose build)
+# Construir el docker-composer 
+# sudo docker-compose build
 
-5- Levantar docker-comper (sudo docker-compose up -d )
+# Levantar docker-comper 
+# sudo docker-compose up -d 
 
-7- Entrar consola php (composer install)
+#Entrar consola php
+#php bin/console composer install
 
-6- localhost:8083 => BD importa sql (liga_base.sql)
+# Actualizar esquema de la BD
+# php bin/consoledoctrine:schema:update --force
 
-7- Collection PostMan (LIGA.postman_collection.json)
+# Importar Base datos a partir del fichero (liga_base.sql)
+# Adminer => localhost:8083 
+
+# Importar Collection PostMan (LIGA.postman_collection.json)
