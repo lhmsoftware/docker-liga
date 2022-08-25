@@ -1,0 +1,58 @@
+#
+# Syntax of service id: <DOCKER_CONTAINER_ID>-<[nginx|php|mysql|adminer]>
+# *** They can not be set by environment var <DOCKER_CONTAINER_ID> ***
+#
+# networks config must be set to allow sharing with other proyects
+#
+version:  '3.7'
+services:
+    l-mysql:
+        image: mysql:5.7
+        container_name: ${DOCKER_CONTAINER_NAME_MYSQL}
+        restart: on-failure
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+        volumes:
+            - './apps/mysql/:/var/lib/mysql'
+        ports:
+            -  '${MYSQL_PORT}:3306'
+    l-php:
+        build:
+            context: .
+            dockerfile: docker/php/Dockerfile
+            args:
+                - U_ID=${UID}
+                - G_ID=${GID}
+                - V_TS=${VTS}
+        container_name: ${DOCKER_CONTAINER_NAME_PHP}
+        restart: on-failure
+        volumes:
+            - './apps/project_liga/:/usr/src/app'
+        user: ${LOCAL_USER}  
+        env_file:
+            - .env
+        user: "${UID}:${GID}"
+    l-nginx:
+        image: nginx:1.15.3-alpine
+        container_name: ${DOCKER_CONTAINER_NAME_NGINX}
+        restart: on-failure
+        volumes:
+            - './apps/project_liga/public:/usr/src/app'
+            - './docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro'
+        ports:
+            - '${NGINX_PORT}:80'
+        depends_on:
+            - ${DOCKER_CONTAINER_ID}-php
+    l-adminer:
+        image: adminer
+        container_name: ${DOCKER_CONTAINER_NAME_ADMINER}
+        restart: on-failure
+        ports:
+            - '${ADMINER_PORT}:8080'
+        environment:
+            ADMINER_DEFAULT_SERVER: ${DOCKER_CONTAINER_ID}-mysql
+networks:
+    default:
+        name: liga_network
+
