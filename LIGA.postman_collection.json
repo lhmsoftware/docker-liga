@@ -1,0 +1,271 @@
+{
+	"info": {
+		"_postman_id": "172c566d-1e97-404f-8a8a-c839c921e64a",
+		"name": "LIGA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22914084"
+	},
+	"item": [
+		{
+			"name": "ADD-CLUB",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Club Valdemoro\",\"name_manager\":\"Coco Fari\",\"budget\":9000000}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:83/liga/club/add",
+					"host": [
+						"localhost"
+					],
+					"port": "83",
+					"path": [
+						"liga",
+						"club",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT-CLUB",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"budget\": 89900000}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:83/liga/club/update/9",
+					"host": [
+						"localhost"
+					],
+					"port": "83",
+					"path": [
+						"liga",
+						"club",
+						"update",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD-PLAYER",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Pedro\",\"age\":32,\"identification\":\"514857F\",\"email\":\"pedro@gmail.com\",\"telephone\":564578,\"number_shirt\":13,\"position\":\"delantero\",\"height\":1.7,\"weight\":68,\"club_id\":1,\"salary\":3500}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "testproyectlhm/player/add",
+					"host": [
+						"testproyectlhm"
+					],
+					"path": [
+						"player",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UNSUBSCRIBE-PLAYER",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:83/liga/player/unsubscribe/33",
+					"host": [
+						"localhost"
+					],
+					"port": "83",
+					"path": [
+						"liga",
+						"player",
+						"unsubscribe",
+						"33"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LIST-PLAYER",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"filter\":{\"age\":\"2\"},\"page\":1}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:83/liga/player/list",
+					"host": [
+						"localhost"
+					],
+					"port": "83",
+					"path": [
+						"liga",
+						"player",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE-PLAYER",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:83/liga/player/delete/36",
+					"host": [
+						"localhost"
+					],
+					"port": "83",
+					"path": [
+						"liga",
+						"player",
+						"delete",
+						"36"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD-COACH",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"Armando\",\"age\": 43, \"identification\":\"585458F\",\"email\":\"armagmail.com\",\"telephone\":63352525,\"experience\":5,\"type_coach\":\"entrenador general\",\"club_id\":13,\"salary\":7000,\"notification\":1}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:83/liga/coach/add",
+					"host": [
+						"localhost"
+					],
+					"port": "83",
+					"path": [
+						"liga",
+						"coach",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UNSUBSCRIBE-COACH",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:83/liga/coach/unsubscribe/25",
+					"host": [
+						"localhost"
+					],
+					"port": "83",
+					"path": [
+						"liga",
+						"coach",
+						"unsubscribe",
+						"25"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE-CLUB-COACH",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"club_id\":14,\"salary\": 4500}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:83/liga/coach/update-club/35",
+					"host": [
+						"localhost"
+					],
+					"port": "83",
+					"path": [
+						"liga",
+						"coach",
+						"update-club",
+						"35"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE-COACH",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:83/liga/coach/delete/36",
+					"host": [
+						"localhost"
+					],
+					"port": "83",
+					"path": [
+						"liga",
+						"coach",
+						"delete",
+						"36"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
